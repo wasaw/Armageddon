@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BB770DE0280EE507002F20C4 /* SFProText-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BB770DDF280EE507002F20C4 /* SFProText-Semibold.ttf */; };
 		BBA22071280C95E00015786F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA22070280C95E00015786F /* AppDelegate.swift */; };
 		BBA22073280C95E00015786F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA22072280C95E00015786F /* SceneDelegate.swift */; };
 		BBA22075280C95E00015786F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA22074280C95E00015786F /* ViewController.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BB770DDF280EE507002F20C4 /* SFProText-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-Semibold.ttf"; sourceTree = "<group>"; };
 		BBA2206D280C95E00015786F /* Armageddon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Armageddon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBA22070280C95E00015786F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BBA22072280C95E00015786F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +49,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BB770DDE280EE4DF002F20C4 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				BB770DDF280EE507002F20C4 /* SFProText-Semibold.ttf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
 		BBA22064280C95E00015786F = {
 			isa = PBXGroup;
 			children = (
@@ -71,6 +81,7 @@
 				BBA22087280D44E90015786F /* Controller */,
 				BBA22088280D44F00015786F /* API */,
 				BBA22091280D892E0015786F /* Utils */,
+				BB770DDE280EE4DF002F20C4 /* Font */,
 				BBA22070280C95E00015786F /* AppDelegate.swift */,
 				BBA22072280C95E00015786F /* SceneDelegate.swift */,
 				BBA22074280C95E00015786F /* ViewController.swift */,
@@ -181,6 +192,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BBA2207D280C95E30015786F /* LaunchScreen.storyboard in Resources */,
+				BB770DE0280EE507002F20C4 /* SFProText-Semibold.ttf in Resources */,
 				BBA2207A280C95E30015786F /* Assets.xcassets in Resources */,
 				BBA22078280C95E00015786F /* Main.storyboard in Resources */,
 			);
