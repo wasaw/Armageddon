@@ -22,6 +22,10 @@ class ArmageddonController: UIViewController {
         configureNavigationController()
         configureCollectionView()
         
+        NetworkService.shared.loadInformation { response in
+            print(response)
+        }
+        
         view.backgroundColor = .navigationBackground
     }
     

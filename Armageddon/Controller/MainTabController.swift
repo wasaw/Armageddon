@@ -14,7 +14,7 @@ class MainTabController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tabBar.isTranslucent = false
+        tabBar.isTranslucent = true
         tabBar.barTintColor = .navigationBackground
         
         configureViewControllers()

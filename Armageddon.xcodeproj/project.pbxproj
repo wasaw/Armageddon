@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		41FEDC7D4D5FAE8BF3C66A5E /* Pods_Armageddon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A1D481999562F50BA79803D /* Pods_Armageddon.framework */; };
 		BB770DE0280EE507002F20C4 /* SFProText-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BB770DDF280EE507002F20C4 /* SFProText-Semibold.ttf */; };
+		BB770DE2280EF66E002F20C4 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB770DE1280EF66E002F20C4 /* NetworkService.swift */; };
+		BB770DE6280EF92C002F20C4 /* JsonResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB770DE5280EF92C002F20C4 /* JsonResponse.swift */; };
 		BBA22071280C95E00015786F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA22070280C95E00015786F /* AppDelegate.swift */; };
 		BBA22073280C95E00015786F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA22072280C95E00015786F /* SceneDelegate.swift */; };
 		BBA22075280C95E00015786F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA22074280C95E00015786F /* ViewController.swift */; };
@@ -22,7 +25,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0486D8C1FC5431419B4F2377 /* Pods-Armageddon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Armageddon.release.xcconfig"; path = "Target Support Files/Pods-Armageddon/Pods-Armageddon.release.xcconfig"; sourceTree = "<group>"; };
+		3A1D481999562F50BA79803D /* Pods_Armageddon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Armageddon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB2A143CA967CFB31A1718F4 /* Pods-Armageddon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Armageddon.debug.xcconfig"; path = "Target Support Files/Pods-Armageddon/Pods-Armageddon.debug.xcconfig"; sourceTree = "<group>"; };
 		BB770DDF280EE507002F20C4 /* SFProText-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-Semibold.ttf"; sourceTree = "<group>"; };
+		BB770DE1280EF66E002F20C4 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		BB770DE5280EF92C002F20C4 /* JsonResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonResponse.swift; sourceTree = "<group>"; };
 		BBA2206D280C95E00015786F /* Armageddon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Armageddon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBA22070280C95E00015786F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BBA22072280C95E00015786F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -43,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41FEDC7D4D5FAE8BF3C66A5E /* Pods_Armageddon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +71,8 @@
 			children = (
 				BBA2206F280C95E00015786F /* Armageddon */,
 				BBA2206E280C95E00015786F /* Products */,
+				D7090C2E0A91FF0D7B9A5715 /* Pods */,
+				DE3331445B044FFC72BF4AA6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,6 +107,7 @@
 		BBA22084280D44D50015786F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BB770DE5280EF92C002F20C4 /* JsonResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -121,6 +133,7 @@
 		BBA22088280D44F00015786F /* API */ = {
 			isa = PBXGroup;
 			children = (
+				BB770DE1280EF66E002F20C4 /* NetworkService.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -133,6 +146,23 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		D7090C2E0A91FF0D7B9A5715 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AB2A143CA967CFB31A1718F4 /* Pods-Armageddon.debug.xcconfig */,
+				0486D8C1FC5431419B4F2377 /* Pods-Armageddon.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		DE3331445B044FFC72BF4AA6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3A1D481999562F50BA79803D /* Pods_Armageddon.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -140,9 +170,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BBA22081280C95E30015786F /* Build configuration list for PBXNativeTarget "Armageddon" */;
 			buildPhases = (
+				7E5674E27D02BFCB33DF7588 /* [CP] Check Pods Manifest.lock */,
 				BBA22069280C95E00015786F /* Sources */,
 				BBA2206A280C95E00015786F /* Frameworks */,
 				BBA2206B280C95E00015786F /* Resources */,
+				11A583D1A4EF5664FF42055C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -200,6 +232,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		11A583D1A4EF5664FF42055C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Armageddon/Pods-Armageddon-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Armageddon/Pods-Armageddon-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Armageddon/Pods-Armageddon-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7E5674E27D02BFCB33DF7588 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Armageddon-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		BBA22069280C95E00015786F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -209,6 +283,8 @@
 				BBA2208A280D45690015786F /* ArmageddonController.swift in Sources */,
 				BBA2208E280D574D0015786F /* MainTabController.swift in Sources */,
 				BBA22093280D89420015786F /* Extensions.swift in Sources */,
+				BB770DE2280EF66E002F20C4 /* NetworkService.swift in Sources */,
+				BB770DE6280EF92C002F20C4 /* JsonResponse.swift in Sources */,
 				BBA22071280C95E00015786F /* AppDelegate.swift in Sources */,
 				BBA22073280C95E00015786F /* SceneDelegate.swift in Sources */,
 				BBA22090280D5F020015786F /* DestructionViewController.swift in Sources */,
@@ -354,6 +430,7 @@
 		};
 		BBA22082280C95E30015786F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AB2A143CA967CFB31A1718F4 /* Pods-Armageddon.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -382,6 +459,7 @@
 		};
 		BBA22083280C95E30015786F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0486D8C1FC5431419B4F2377 /* Pods-Armageddon.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
