@@ -25,6 +25,7 @@ class ArmageddonCell: UICollectionViewCell {
     private let asteroidNameLabel: UILabel = {
         let label = UILabel()
         label.text = "2021 FQ"
+//        label.lineBreakMode = .byWordWrapping
         label.font = UIFont(name: "Helvetica Bold", size: 24)
         return label
     }()
@@ -87,6 +88,12 @@ class ArmageddonCell: UICollectionViewCell {
         button.configuration?.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 12, bottom: 0, trailing: 12)
         return button
     }()
+    
+    var asteroid: AsteridInformation? {
+        didSet {
+            setInformation()
+        }
+    }
         
 //    MARK: - Lifecycle
     
@@ -96,11 +103,11 @@ class ArmageddonCell: UICollectionViewCell {
         configureStackView()
         configureAsteroidView()
         configureAsteroidInformationView()
-        
+                
         asteroidView.layer.insertSublayer(gradiendLayer, at: 0)
         
         shadow()
-
+        
         backgroundColor = .white
     }
     
@@ -139,14 +146,6 @@ class ArmageddonCell: UICollectionViewCell {
         asteroidImageView.widthAnchor.constraint(equalToConstant: 61).isActive = true
         asteroidImageView.heightAnchor.constraint(equalToConstant: 62).isActive = true
         
-        asteroidView.addSubview(asteroidNameLabel)
-        
-        asteroidNameLabel.translatesAutoresizingMaskIntoConstraints = false
-        asteroidNameLabel.leftAnchor.constraint(equalTo: asteroidView.leftAnchor, constant: 16).isActive = true
-        asteroidNameLabel.bottomAnchor.constraint(equalTo: asteroidView.bottomAnchor, constant: -8).isActive = true
-        asteroidNameLabel.widthAnchor.constraint(equalToConstant: 94).isActive = true
-        asteroidNameLabel.heightAnchor.constraint(equalToConstant: 32).isActive = true
-        
         asteroidView.addSubview(dinosaurImageView)
         
         dinosaurImageView.translatesAutoresizingMaskIntoConstraints = false
@@ -154,6 +153,14 @@ class ArmageddonCell: UICollectionViewCell {
         dinosaurImageView.bottomAnchor.constraint(equalTo: asteroidView.bottomAnchor).isActive = true
         dinosaurImageView.widthAnchor.constraint(equalToConstant: 35).isActive = true
         dinosaurImageView.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        
+        asteroidView.addSubview(asteroidNameLabel)
+        
+        asteroidNameLabel.translatesAutoresizingMaskIntoConstraints = false
+        asteroidNameLabel.leftAnchor.constraint(equalTo: asteroidView.leftAnchor, constant: 16).isActive = true
+        asteroidNameLabel.bottomAnchor.constraint(equalTo: asteroidView.bottomAnchor, constant: -8).isActive = true
+        asteroidNameLabel.rightAnchor.constraint(equalTo: dinosaurImageView.leftAnchor, constant: -10).isActive = true
+        asteroidNameLabel.heightAnchor.constraint(equalToConstant: 32).isActive = true
     }
     
     private func configureAsteroidInformationView() {
@@ -165,6 +172,7 @@ class ArmageddonCell: UICollectionViewCell {
         labelStackView.translatesAutoresizingMaskIntoConstraints = false
         labelStackView.leftAnchor.constraint(equalTo: asteroidInformationView.leftAnchor, constant: 16).isActive = true
         labelStackView.topAnchor.constraint(equalTo: asteroidInformationView.topAnchor, constant: 16).isActive = true
+//        labelStackView.rightAnchor.constraint(equalTo: asteroidInformationView.rightAnchor, constant: -16).isActive = true
         labelStackView.widthAnchor.constraint(equalToConstant: 219).isActive = true
         labelStackView.heightAnchor.constraint(equalToConstant: 88).isActive = true
         
@@ -193,5 +201,17 @@ class ArmageddonCell: UICollectionViewCell {
         layer.shadowOffset = CGSize(width: 0, height: 0)
         layer.shadowOpacity = 0.097
         layer.shadowRadius = 10
+    }
+    
+    private func setInformation() {
+        guard let asteroid = asteroid else { return }
+        asteroidNameLabel.text = asteroid.name
+        diameterLabel.text = "Диаметр: " + String(asteroid.estimatedDiameter) + " m"
+        arrivalLabel.text = "Подлетает " + asteroid.closeApproachData
+        distanceLabel.text = "на расстояние " + asteroid.distanse + " км"
+        if asteroid.isPotentiallyHazardous {
+            scoreLabel.text = "Оценка: опасен"
+            gradiendLayer.colors = [UIColor.dangerousAsteroidStartGradient.cgColor, UIColor.dangerousAsteroidFinishGradient.cgColor]
+        }
     }
 }

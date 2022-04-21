@@ -18,3 +18,18 @@ extension UIColor {
     static let dangerousAsteroidFinishGradient = UIColor(displayP3Red: 255/255, green: 8/255, blue: 68/255, alpha: 1)
     static let cellShadowBackground = UIColor(displayP3Red: 0, green: 0, blue: 0, alpha: 0.987)
 }
+
+//MARK: - String
+
+extension String {
+    func substring(from left: String, to right: String) -> String {
+        if let match = range(of: "(?<=\(left))[^\(right)]+", options: .regularExpression) {
+            return String(self[match])
+        }
+        return ""
+    }
+    
+    func separated(by separator: String = " ", stride: Int = 3) -> String {
+           return enumerated().map { $0.isMultiple(of: stride) && ($0 != 0) ? "\(separator)\($1)" : String($1) }.joined()
+       }
+}

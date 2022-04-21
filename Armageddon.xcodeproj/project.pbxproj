@@ -11,6 +11,7 @@
 		BB770DE0280EE507002F20C4 /* SFProText-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BB770DDF280EE507002F20C4 /* SFProText-Semibold.ttf */; };
 		BB770DE2280EF66E002F20C4 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB770DE1280EF66E002F20C4 /* NetworkService.swift */; };
 		BB770DE6280EF92C002F20C4 /* JsonResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB770DE5280EF92C002F20C4 /* JsonResponse.swift */; };
+		BB770DE828100369002F20C4 /* AsteroidInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB770DE728100369002F20C4 /* AsteroidInformation.swift */; };
 		BBA22071280C95E00015786F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA22070280C95E00015786F /* AppDelegate.swift */; };
 		BBA22073280C95E00015786F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA22072280C95E00015786F /* SceneDelegate.swift */; };
 		BBA22075280C95E00015786F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA22074280C95E00015786F /* ViewController.swift */; };
@@ -31,6 +32,7 @@
 		BB770DDF280EE507002F20C4 /* SFProText-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-Semibold.ttf"; sourceTree = "<group>"; };
 		BB770DE1280EF66E002F20C4 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		BB770DE5280EF92C002F20C4 /* JsonResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonResponse.swift; sourceTree = "<group>"; };
+		BB770DE728100369002F20C4 /* AsteroidInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsteroidInformation.swift; sourceTree = "<group>"; };
 		BBA2206D280C95E00015786F /* Armageddon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Armageddon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBA22070280C95E00015786F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BBA22072280C95E00015786F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				BB770DE5280EF92C002F20C4 /* JsonResponse.swift */,
+				BB770DE728100369002F20C4 /* AsteroidInformation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 				BBA2208A280D45690015786F /* ArmageddonController.swift in Sources */,
 				BBA2208E280D574D0015786F /* MainTabController.swift in Sources */,
 				BBA22093280D89420015786F /* Extensions.swift in Sources */,
+				BB770DE828100369002F20C4 /* AsteroidInformation.swift in Sources */,
 				BB770DE2280EF66E002F20C4 /* NetworkService.swift in Sources */,
 				BB770DE6280EF92C002F20C4 /* JsonResponse.swift in Sources */,
 				BBA22071280C95E00015786F /* AppDelegate.swift in Sources */,

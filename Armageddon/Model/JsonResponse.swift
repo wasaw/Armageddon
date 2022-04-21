@@ -14,24 +14,27 @@ struct Asteroid: Decodable {
     let name: String
     let estimated_diameter: EstimatedDiameter
     let is_potentially_hazardous_asteroid: Bool
-    let miss_distance: MissDistance?
     let close_approach_data: [CloseApproachData]
 }
 
 struct EstimatedDiameter: Decodable {
-    let kilometers: Measure
+    let meters: Measure
 }
 
 struct Measure: Decodable {
     let estimated_diameter_min: Double
     let estimated_diameter_max: Double
-}
-
-struct MissDistance: Decodable {
-    let kilometers: String
+    var diameter: Int {
+        return Int((estimated_diameter_max + estimated_diameter_min) / 2)
+    }
 }
 
 struct CloseApproachData: Decodable {
     let close_approach_date: String
     let close_approach_date_full: String
+    let miss_distance: MissDistance
+}
+
+struct MissDistance: Decodable {
+    let kilometers: String
 }
