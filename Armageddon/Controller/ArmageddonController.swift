@@ -23,13 +23,17 @@ class ArmageddonController: UIViewController {
         configureNavigationController()
         configureCollectionView()
         
-        NetworkService.shared.loadInformation { response in
-            guard let selectedDateObject = response.near_earth_objects["2022-01-07"] else { return }
-            let formatter = DateFormatter()
+        let currentDate = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        let requestCurrentDate = formatter.string(from: currentDate)
+        
+        NetworkService.shared.loadInformation(requestDate: requestCurrentDate) { response in
+            guard let selectedDateObject = response.near_earth_objects[requestCurrentDate] else { return }
             for object in selectedDateObject {
                 let name = object.name.substring(from: "\\(", to: "\\)")
                 
-                formatter.dateFormat = "yyyy-mm-dd"
+                formatter.dateFormat = "yyyy-MM-dd"
                 let dateFromString = formatter.date(from: object.close_approach_data[0].close_approach_date)
                 formatter.dateFormat = "dd LLLL yyyy"
                 guard let dateFromString = dateFromString else { continue }
