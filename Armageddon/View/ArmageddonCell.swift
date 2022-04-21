@@ -82,7 +82,7 @@ class ArmageddonCell: UICollectionViewCell {
         let button = UIButton()
         button.setTitle("УНИЧТОЖИТЬ", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.titleLabel?.font = UIFont(name: "SF Pro Text", size: 13)
+        button.titleLabel?.font = UIFont(name: "SFProText-Semibold", size: 13)
         button.backgroundColor = .buttonBackground
         button.layer.cornerRadius = 14
         button.configuration?.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 12, bottom: 0, trailing: 12)

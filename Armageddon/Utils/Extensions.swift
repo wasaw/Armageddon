@@ -17,6 +17,7 @@ extension UIColor {
     static let dangerousAsteroidStartGradient = UIColor(displayP3Red: 255/255, green: 177/255, blue: 153/255, alpha: 1)
     static let dangerousAsteroidFinishGradient = UIColor(displayP3Red: 255/255, green: 8/255, blue: 68/255, alpha: 1)
     static let cellShadowBackground = UIColor(displayP3Red: 0, green: 0, blue: 0, alpha: 0.987)
+    static let formBackground = UIColor(displayP3Red: 94/255, green: 99/255, blue: 102/255, alpha: 0.2)
 }
 
 //MARK: - String

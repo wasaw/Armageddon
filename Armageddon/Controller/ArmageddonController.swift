@@ -20,6 +20,8 @@ class ArmageddonController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.backButtonTitle = "Назад"
+        
         configureNavigationController()
         configureCollectionView()
         
@@ -27,6 +29,7 @@ class ArmageddonController: UIViewController {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         let requestCurrentDate = formatter.string(from: currentDate)
+//        let modifiedDate = Calendar.current.date(byAdding: .day, value: 1, to: currentDate)
         
         NetworkService.shared.loadInformation(requestDate: requestCurrentDate) { response in
             guard let selectedDateObject = response.near_earth_objects[requestCurrentDate] else { return }
@@ -85,7 +88,8 @@ class ArmageddonController: UIViewController {
 //    MARK: - Selectors
     
     @objc private func handleRightButton() {
-        print("DEBUG: print right button")
+        let vc = FilterController()
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 

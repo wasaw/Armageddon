@@ -8,10 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		41FEDC7D4D5FAE8BF3C66A5E /* Pods_Armageddon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A1D481999562F50BA79803D /* Pods_Armageddon.framework */; };
-		BB770DE0280EE507002F20C4 /* SFProText-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BB770DDF280EE507002F20C4 /* SFProText-Semibold.ttf */; };
 		BB770DE2280EF66E002F20C4 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB770DE1280EF66E002F20C4 /* NetworkService.swift */; };
 		BB770DE6280EF92C002F20C4 /* JsonResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB770DE5280EF92C002F20C4 /* JsonResponse.swift */; };
 		BB770DE828100369002F20C4 /* AsteroidInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB770DE728100369002F20C4 /* AsteroidInformation.swift */; };
+		BB770DEA2811498E002F20C4 /* FilterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB770DE92811498E002F20C4 /* FilterController.swift */; };
+		BB770DEC28115352002F20C4 /* FilterForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB770DEB28115352002F20C4 /* FilterForm.swift */; };
+		BB770DEE281179F0002F20C4 /* SFProText-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BB770DED281179F0002F20C4 /* SFProText-Regular.ttf */; };
+		BB770DEF28118913002F20C4 /* SFProText-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BB770DDF280EE507002F20C4 /* SFProText-Semibold.ttf */; };
 		BBA22071280C95E00015786F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA22070280C95E00015786F /* AppDelegate.swift */; };
 		BBA22073280C95E00015786F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA22072280C95E00015786F /* SceneDelegate.swift */; };
 		BBA22075280C95E00015786F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA22074280C95E00015786F /* ViewController.swift */; };
@@ -33,6 +36,9 @@
 		BB770DE1280EF66E002F20C4 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		BB770DE5280EF92C002F20C4 /* JsonResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonResponse.swift; sourceTree = "<group>"; };
 		BB770DE728100369002F20C4 /* AsteroidInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsteroidInformation.swift; sourceTree = "<group>"; };
+		BB770DE92811498E002F20C4 /* FilterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterController.swift; sourceTree = "<group>"; };
+		BB770DEB28115352002F20C4 /* FilterForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterForm.swift; sourceTree = "<group>"; };
+		BB770DED281179F0002F20C4 /* SFProText-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-Regular.ttf"; sourceTree = "<group>"; };
 		BBA2206D280C95E00015786F /* Armageddon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Armageddon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBA22070280C95E00015786F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BBA22072280C95E00015786F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +69,7 @@
 		BB770DDE280EE4DF002F20C4 /* Font */ = {
 			isa = PBXGroup;
 			children = (
+				BB770DED281179F0002F20C4 /* SFProText-Regular.ttf */,
 				BB770DDF280EE507002F20C4 /* SFProText-Semibold.ttf */,
 			);
 			path = Font;
@@ -119,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				BBA2208B280D477F0015786F /* ArmageddonCell.swift */,
+				BB770DEB28115352002F20C4 /* FilterForm.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -129,6 +137,7 @@
 				BBA22089280D45690015786F /* ArmageddonController.swift */,
 				BBA2208F280D5F020015786F /* DestructionViewController.swift */,
 				BBA2208D280D574D0015786F /* MainTabController.swift */,
+				BB770DE92811498E002F20C4 /* FilterController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -227,8 +236,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				BBA2207D280C95E30015786F /* LaunchScreen.storyboard in Resources */,
-				BB770DE0280EE507002F20C4 /* SFProText-Semibold.ttf in Resources */,
 				BBA2207A280C95E30015786F /* Assets.xcassets in Resources */,
+				BB770DEE281179F0002F20C4 /* SFProText-Regular.ttf in Resources */,
+				BB770DEF28118913002F20C4 /* SFProText-Semibold.ttf in Resources */,
 				BBA22078280C95E00015786F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -285,9 +295,11 @@
 				BBA22075280C95E00015786F /* ViewController.swift in Sources */,
 				BBA2208A280D45690015786F /* ArmageddonController.swift in Sources */,
 				BBA2208E280D574D0015786F /* MainTabController.swift in Sources */,
+				BB770DEA2811498E002F20C4 /* FilterController.swift in Sources */,
 				BBA22093280D89420015786F /* Extensions.swift in Sources */,
 				BB770DE828100369002F20C4 /* AsteroidInformation.swift in Sources */,
 				BB770DE2280EF66E002F20C4 /* NetworkService.swift in Sources */,
+				BB770DEC28115352002F20C4 /* FilterForm.swift in Sources */,
 				BB770DE6280EF92C002F20C4 /* JsonResponse.swift in Sources */,
 				BBA22071280C95E00015786F /* AppDelegate.swift in Sources */,
 				BBA22073280C95E00015786F /* SceneDelegate.swift in Sources */,
