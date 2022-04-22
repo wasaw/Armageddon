@@ -18,7 +18,7 @@ class ArmageddonCell: UICollectionViewCell {
     
     private let asteroidImageView: UIImageView = {
         let iv = UIImageView()
-        iv.image = UIImage(named: "SmallAsteroid")
+        iv.contentMode = .left
         return iv
     }()
     
@@ -132,14 +132,6 @@ class ArmageddonCell: UICollectionViewCell {
     }
     
     private func configureAsteroidView() {
-        asteroidView.addSubview(asteroidImageView)
-        
-        asteroidImageView.translatesAutoresizingMaskIntoConstraints = false
-        asteroidImageView.leftAnchor.constraint(equalTo: asteroidView.leftAnchor, constant: 27).isActive = true
-        asteroidImageView.topAnchor.constraint(equalTo: asteroidView.topAnchor, constant: 22).isActive = true
-        asteroidImageView.widthAnchor.constraint(equalToConstant: 61).isActive = true
-        asteroidImageView.heightAnchor.constraint(equalToConstant: 62).isActive = true
-        
         asteroidView.addSubview(dinosaurImageView)
         
         dinosaurImageView.translatesAutoresizingMaskIntoConstraints = false
@@ -155,6 +147,13 @@ class ArmageddonCell: UICollectionViewCell {
         asteroidNameLabel.bottomAnchor.constraint(equalTo: asteroidView.bottomAnchor, constant: -8).isActive = true
         asteroidNameLabel.rightAnchor.constraint(equalTo: dinosaurImageView.leftAnchor, constant: -10).isActive = true
         asteroidNameLabel.heightAnchor.constraint(equalToConstant: 32).isActive = true
+        
+        asteroidView.addSubview(asteroidImageView)
+        
+        asteroidImageView.translatesAutoresizingMaskIntoConstraints = false
+        asteroidImageView.leftAnchor.constraint(equalTo: asteroidView.leftAnchor, constant: 27).isActive = true
+        asteroidImageView.bottomAnchor.constraint(equalTo: asteroidNameLabel.topAnchor, constant: -21).isActive = true
+        asteroidImageView.rightAnchor.constraint(equalTo: asteroidView.rightAnchor, constant: -40).isActive = true
     }
     
     private func configureAsteroidInformationView() {
@@ -166,7 +165,6 @@ class ArmageddonCell: UICollectionViewCell {
         labelStackView.translatesAutoresizingMaskIntoConstraints = false
         labelStackView.leftAnchor.constraint(equalTo: asteroidInformationView.leftAnchor, constant: 16).isActive = true
         labelStackView.topAnchor.constraint(equalTo: asteroidInformationView.topAnchor, constant: 16).isActive = true
-//        labelStackView.rightAnchor.constraint(equalTo: asteroidInformationView.rightAnchor, constant: -16).isActive = true
         labelStackView.widthAnchor.constraint(equalToConstant: 219).isActive = true
         labelStackView.heightAnchor.constraint(equalToConstant: 88).isActive = true
         
@@ -214,6 +212,14 @@ class ArmageddonCell: UICollectionViewCell {
         } else {
             scoreLabel.text = "Оценка: не опасен"
             gradiendLayer.colors = [UIColor.safeAsteroidStartGradient.cgColor, UIColor.safeAsteroidFinishGradient.cgColor]
+        }
+        switch asteroid.asteroidSize {
+        case .small:
+            asteroidImageView.image = UIImage(named: "SmallAsteroid")
+        case .medium:
+            asteroidImageView.image = UIImage(named: "MoreAsteroid")
+        case .big:
+            asteroidImageView.image = UIImage(named: "HugeAsteroid")
         }
     }
 }

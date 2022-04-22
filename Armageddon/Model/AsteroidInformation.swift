@@ -12,6 +12,12 @@ enum UnitMeasure {
     case lunar
 }
 
+enum AsteroidSize {
+    case small
+    case medium
+    case big
+}
+
 struct AsteridInformation {
     let name: String
     let estimatedDiameter: Double
@@ -20,6 +26,16 @@ struct AsteridInformation {
     let distanceKilometers: String
     let distanceLunar: String
     var unitMeasure: UnitMeasure = .kilometers
+    var asteroidSize: AsteroidSize {
+        switch estimatedDiameter {
+        case ..<0.2:
+            return .small
+        case ..<1:
+            return .medium
+        default:
+            return.big
+        }
+    }
     
     init(name: String, estimatedDiameter: Double, hazardous: Bool, data: String, distanceKilometers: String, distanceLunar: String) {
         self.name = name

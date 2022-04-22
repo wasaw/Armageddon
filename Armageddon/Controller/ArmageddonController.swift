@@ -119,10 +119,6 @@ class ArmageddonController: UIViewController {
 
 // MARK: - Extensions
 
-extension ArmageddonController: UICollectionViewDelegate {
-    
-}
-
 extension ArmageddonController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifire, for: indexPath) as? ArmageddonCell else { return UICollectionViewCell() }
