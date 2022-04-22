@@ -14,6 +14,9 @@ class ArmageddonController: UIViewController {
     private var collectionView: UICollectionView?
     private let reuseIdentifire = "ArmageddonCell"
     private var arrayAsteroidInformation = [AsteridInformation]()
+    private var filter = FilterInfornation()
+    private var filteredArray = [AsteridInformation]()
+    private var isNothingVisible = false
     
 //    MARK: - Lifecycle
     
@@ -30,7 +33,7 @@ class ArmageddonController: UIViewController {
         formatter.dateFormat = "yyyy-MM-dd"
         let requestCurrentDate = formatter.string(from: currentDate)
 //        let modifiedDate = Calendar.current.date(byAdding: .day, value: 1, to: currentDate)
-        
+
         NetworkService.shared.loadInformation(requestDate: requestCurrentDate) { response in
             guard let selectedDateObject = response.near_earth_objects[requestCurrentDate] else { return }
             for object in selectedDateObject {
@@ -42,20 +45,25 @@ class ArmageddonController: UIViewController {
                 guard let dateFromString = dateFromString else { continue }
                 let date = formatter.string(from: dateFromString)
                 
-                var distance = object.close_approach_data[0].miss_distance.kilometers.components(separatedBy: ".")[0]
-                distance = String(distance.reversed())
-                distance = distance.separated()
-                distance = String(distance.reversed())
+                var distanceKilometers = object.close_approach_data[0].miss_distance.kilometers.components(separatedBy: ".")[0]
+                distanceKilometers = String(distanceKilometers.reversed())
+                distanceKilometers = distanceKilometers.separated()
+                distanceKilometers = String(distanceKilometers.reversed())
                 
-                let asteroid = AsteridInformation(name: name, estimatedDiameter: object.estimated_diameter.meters.diameter,
+                var distanceLunar = object.close_approach_data[0].miss_distance.lunar.components(separatedBy: ".")[0]
+                distanceLunar = String(distanceLunar.reversed())
+                distanceLunar = distanceLunar.separated()
+                distanceLunar = String(distanceLunar.reversed())
+                
+                let asteroid = AsteridInformation(name: name, estimatedDiameter: object.estimated_diameter.kilometers.diameter,
                                                   hazardous: object.is_potentially_hazardous_asteroid,
                                                   data: date,
-                                                  distance: distance)
+                                                  distanceKilometers: distanceKilometers,
+                                                  distanceLunar: distanceLunar)
                 self.arrayAsteroidInformation.append(asteroid)
             }
             self.collectionView?.reloadData()
         }
-        
         view.backgroundColor = .navigationBackground
     }
     
@@ -85,10 +93,26 @@ class ArmageddonController: UIViewController {
         collectionView.backgroundColor = .white
     }
     
+    private func filterAsteroid() {
+        var i = 0
+        for item in arrayAsteroidInformation {
+            if filter.isVisibleOnlyDangerous && item.isPotentiallyHazardous {
+                filteredArray.append(item)
+            }
+            arrayAsteroidInformation[i].unitMeasure = filter.unitMeasure
+            i += 1
+        }
+        if filter.isVisibleOnlyDangerous && filteredArray.isEmpty {
+            isNothingVisible = true
+        }
+        self.collectionView?.reloadData()
+    }
+    
 //    MARK: - Selectors
     
     @objc private func handleRightButton() {
         let vc = FilterController()
+        vc.delegate = self
         navigationController?.pushViewController(vc, animated: true)
     }
 }
@@ -103,16 +127,26 @@ extension ArmageddonController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifire, for: indexPath) as? ArmageddonCell else { return UICollectionViewCell() }
         if !arrayAsteroidInformation.isEmpty {
-            cell.asteroid = arrayAsteroidInformation[indexPath.row]
+            if !filteredArray.isEmpty {
+                cell.asteroid = filteredArray[indexPath.row]
+            } else {
+                cell.asteroid = arrayAsteroidInformation[indexPath.row]
+            }
         }
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if !arrayAsteroidInformation.isEmpty {
+            if !filteredArray.isEmpty {
+                return filteredArray.count
+            }
+            if isNothingVisible {
+                return 0
+            }
             return arrayAsteroidInformation.count
         }
-        return 1
+        return 0
     }
     
 }
@@ -128,5 +162,14 @@ extension ArmageddonController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 19.5, left: 16, bottom: 43.5, right: 19)
+    }
+}
+
+extension ArmageddonController: ApplyFilterDelegate {
+    func applyFilter(filterDelegate: FilterInfornation) {
+        filter = filterDelegate
+        isNothingVisible = false
+        filteredArray = []
+        filterAsteroid()
     }
 }

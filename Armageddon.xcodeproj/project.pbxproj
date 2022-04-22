@@ -14,7 +14,8 @@
 		BB770DEA2811498E002F20C4 /* FilterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB770DE92811498E002F20C4 /* FilterController.swift */; };
 		BB770DEC28115352002F20C4 /* FilterForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB770DEB28115352002F20C4 /* FilterForm.swift */; };
 		BB770DEE281179F0002F20C4 /* SFProText-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BB770DED281179F0002F20C4 /* SFProText-Regular.ttf */; };
-		BB770DEF28118913002F20C4 /* SFProText-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BB770DDF280EE507002F20C4 /* SFProText-Semibold.ttf */; };
+		BB8AA91928118EC700CCE42F /* SFProText-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BB8AA91828118EC700CCE42F /* SFProText-Semibold.ttf */; };
+		BB8AA91D2811972800CCE42F /* FilterInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8AA91C2811972800CCE42F /* FilterInformation.swift */; };
 		BBA22071280C95E00015786F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA22070280C95E00015786F /* AppDelegate.swift */; };
 		BBA22073280C95E00015786F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA22072280C95E00015786F /* SceneDelegate.swift */; };
 		BBA22075280C95E00015786F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA22074280C95E00015786F /* ViewController.swift */; };
@@ -32,13 +33,14 @@
 		0486D8C1FC5431419B4F2377 /* Pods-Armageddon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Armageddon.release.xcconfig"; path = "Target Support Files/Pods-Armageddon/Pods-Armageddon.release.xcconfig"; sourceTree = "<group>"; };
 		3A1D481999562F50BA79803D /* Pods_Armageddon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Armageddon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB2A143CA967CFB31A1718F4 /* Pods-Armageddon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Armageddon.debug.xcconfig"; path = "Target Support Files/Pods-Armageddon/Pods-Armageddon.debug.xcconfig"; sourceTree = "<group>"; };
-		BB770DDF280EE507002F20C4 /* SFProText-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-Semibold.ttf"; sourceTree = "<group>"; };
 		BB770DE1280EF66E002F20C4 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		BB770DE5280EF92C002F20C4 /* JsonResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonResponse.swift; sourceTree = "<group>"; };
 		BB770DE728100369002F20C4 /* AsteroidInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsteroidInformation.swift; sourceTree = "<group>"; };
 		BB770DE92811498E002F20C4 /* FilterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterController.swift; sourceTree = "<group>"; };
 		BB770DEB28115352002F20C4 /* FilterForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterForm.swift; sourceTree = "<group>"; };
 		BB770DED281179F0002F20C4 /* SFProText-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-Regular.ttf"; sourceTree = "<group>"; };
+		BB8AA91828118EC700CCE42F /* SFProText-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProText-Semibold.ttf"; sourceTree = "<group>"; };
+		BB8AA91C2811972800CCE42F /* FilterInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterInformation.swift; sourceTree = "<group>"; };
 		BBA2206D280C95E00015786F /* Armageddon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Armageddon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBA22070280C95E00015786F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BBA22072280C95E00015786F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -70,7 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				BB770DED281179F0002F20C4 /* SFProText-Regular.ttf */,
-				BB770DDF280EE507002F20C4 /* SFProText-Semibold.ttf */,
+				BB8AA91828118EC700CCE42F /* SFProText-Semibold.ttf */,
 			);
 			path = Font;
 			sourceTree = "<group>";
@@ -118,6 +120,7 @@
 			children = (
 				BB770DE5280EF92C002F20C4 /* JsonResponse.swift */,
 				BB770DE728100369002F20C4 /* AsteroidInformation.swift */,
+				BB8AA91C2811972800CCE42F /* FilterInformation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -238,7 +241,7 @@
 				BBA2207D280C95E30015786F /* LaunchScreen.storyboard in Resources */,
 				BBA2207A280C95E30015786F /* Assets.xcassets in Resources */,
 				BB770DEE281179F0002F20C4 /* SFProText-Regular.ttf in Resources */,
-				BB770DEF28118913002F20C4 /* SFProText-Semibold.ttf in Resources */,
+				BB8AA91928118EC700CCE42F /* SFProText-Semibold.ttf in Resources */,
 				BBA22078280C95E00015786F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -298,6 +301,7 @@
 				BB770DEA2811498E002F20C4 /* FilterController.swift in Sources */,
 				BBA22093280D89420015786F /* Extensions.swift in Sources */,
 				BB770DE828100369002F20C4 /* AsteroidInformation.swift in Sources */,
+				BB8AA91D2811972800CCE42F /* FilterInformation.swift in Sources */,
 				BB770DE2280EF66E002F20C4 /* NetworkService.swift in Sources */,
 				BB770DEC28115352002F20C4 /* FilterForm.swift in Sources */,
 				BB770DE6280EF92C002F20C4 /* JsonResponse.swift in Sources */,

@@ -7,13 +7,21 @@
 
 import UIKit
 
+protocol FilterFormDelegate: AnyObject {
+    func changeDangerousVisible(value: Bool)
+    func changeUnit(unit: Int)
+}
+
 class FilterForm: UIView {
     
 //    MARK: - Properties
     
+    weak var delegate: FilterFormDelegate?
+    
     private let unitSwitcher: UISegmentedControl = {
         let sg = UISegmentedControl(items: ["км", "л.орб."])
         sg.setTitleTextAttributes([.font : UIFont(name: "SFProText-Regular", size: 13) ?? UIFont.systemFont(ofSize: 13) ], for: .normal)
+        sg.addTarget(self, action: #selector(handleUnitSwitcher), for: .valueChanged)
         return sg
     }()
     
@@ -32,6 +40,7 @@ class FilterForm: UIView {
     
     private let dangerousSwitch: UISwitch = {
         let sw = UISwitch()
+        sw.addTarget(self, action: #selector(handleDangerousSwitch), for: .valueChanged)
         return sw
     }()
     
@@ -112,5 +121,15 @@ class FilterForm: UIView {
         dangerousLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -11).isActive = true
         dangerousLabel.rightAnchor.constraint(equalTo: dangerousSwitch.leftAnchor, constant: -35).isActive = true
         dangerousLabel.heightAnchor.constraint(equalToConstant: 22).isActive = true
+    }
+    
+//    MARK: - Selectors
+    
+    @objc private func handleDangerousSwitch(dangerousSwitch: UISwitch) {
+        delegate?.changeDangerousVisible(value: dangerousSwitch.isOn)
+    }
+    
+    @objc private func handleUnitSwitcher(unitSwitcher: UISegmentedControl) {
+        delegate?.changeUnit(unit: unitSwitcher.selectedSegmentIndex)
     }
 }

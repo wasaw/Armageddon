@@ -7,18 +7,26 @@
 
 import Foundation
 
+enum UnitMeasure {
+    case kilometers
+    case lunar
+}
+
 struct AsteridInformation {
     let name: String
-    let estimatedDiameter: Int
+    let estimatedDiameter: Double
     let isPotentiallyHazardous: Bool
     let closeApproachData: String
-    let distanse: String
+    let distanceKilometers: String
+    let distanceLunar: String
+    var unitMeasure: UnitMeasure = .kilometers
     
-    init(name: String, estimatedDiameter: Int, hazardous: Bool, data: String, distance: String) {
+    init(name: String, estimatedDiameter: Double, hazardous: Bool, data: String, distanceKilometers: String, distanceLunar: String) {
         self.name = name
         self.estimatedDiameter = estimatedDiameter
         self.isPotentiallyHazardous = hazardous
         self.closeApproachData = data
-        self.distanse = distance
+        self.distanceKilometers = distanceKilometers
+        self.distanceLunar = distanceLunar
     }
 }

@@ -24,8 +24,6 @@ class ArmageddonCell: UICollectionViewCell {
     
     private let asteroidNameLabel: UILabel = {
         let label = UILabel()
-        label.text = "2021 FQ"
-//        label.lineBreakMode = .byWordWrapping
         label.font = UIFont(name: "Helvetica Bold", size: 24)
         return label
     }()
@@ -52,28 +50,24 @@ class ArmageddonCell: UICollectionViewCell {
     
     private let diameterLabel: UILabel = {
         let label = UILabel()
-        label.text = "Диаметр: 85 м"
         label.font = UIFont(name: "Helvetica", size: 16)
         return label
     }()
     
     private let arrivalLabel: UILabel = {
         let label = UILabel()
-        label.text = "Подлетает 12 сентября 2022"
         label.font = UIFont(name: "Helvetica", size: 16)
         return label
     }()
     
     private let distanceLabel: UILabel = {
         let label = UILabel()
-        label.text = "на расстояние 7 235 024 км"
         label.font = UIFont(name: "Helvetica", size: 16)
         return label
     }()
     
     private let scoreLabel: UILabel = {
         let label = UILabel()
-        label.text = "Оценка: не опасен"
         label.font = UIFont(name: "Helvetica", size: 16)
         return label
     }()
@@ -206,12 +200,20 @@ class ArmageddonCell: UICollectionViewCell {
     private func setInformation() {
         guard let asteroid = asteroid else { return }
         asteroidNameLabel.text = asteroid.name
-        diameterLabel.text = "Диаметр: " + String(asteroid.estimatedDiameter) + " m"
+        diameterLabel.text = "Диаметр: " + String(format: "%.2f", asteroid.estimatedDiameter) + " км"
         arrivalLabel.text = "Подлетает " + asteroid.closeApproachData
-        distanceLabel.text = "на расстояние " + asteroid.distanse + " км"
+        switch asteroid.unitMeasure {
+        case .kilometers:
+            distanceLabel.text = "на расстояние " + asteroid.distanceKilometers + " км"
+        case .lunar:
+            distanceLabel.text = "на расстояние " + asteroid.distanceLunar + " л. орб."
+        }
         if asteroid.isPotentiallyHazardous {
             scoreLabel.text = "Оценка: опасен"
             gradiendLayer.colors = [UIColor.dangerousAsteroidStartGradient.cgColor, UIColor.dangerousAsteroidFinishGradient.cgColor]
+        } else {
+            scoreLabel.text = "Оценка: не опасен"
+            gradiendLayer.colors = [UIColor.safeAsteroidStartGradient.cgColor, UIColor.safeAsteroidFinishGradient.cgColor]
         }
     }
 }

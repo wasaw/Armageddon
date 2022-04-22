@@ -18,14 +18,14 @@ struct Asteroid: Decodable {
 }
 
 struct EstimatedDiameter: Decodable {
-    let meters: Measure
+    let kilometers: Measure
 }
 
 struct Measure: Decodable {
     let estimated_diameter_min: Double
     let estimated_diameter_max: Double
-    var diameter: Int {
-        return Int((estimated_diameter_max + estimated_diameter_min) / 2)
+    var diameter: Double {
+        return (estimated_diameter_max + estimated_diameter_min) / 2
     }
 }
 
@@ -37,4 +37,5 @@ struct CloseApproachData: Decodable {
 
 struct MissDistance: Decodable {
     let kilometers: String
+    let lunar: String
 }
