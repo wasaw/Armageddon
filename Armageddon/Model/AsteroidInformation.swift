@@ -18,7 +18,7 @@ enum AsteroidSize {
     case big
 }
 
-struct AsteridInformation {
+struct AsteroidInformation {
     let name: String
     let estimatedDiameter: Double
     let isPotentiallyHazardous: Bool
@@ -36,13 +36,17 @@ struct AsteridInformation {
             return.big
         }
     }
+    let relativeVelocity: String
+    let orbitingBody: String
     
-    init(name: String, estimatedDiameter: Double, hazardous: Bool, data: String, distanceKilometers: String, distanceLunar: String) {
+    init(name: String, estimatedDiameter: Double, hazardous: Bool, data: String, distanceKilometers: String, distanceLunar: String, relativeVelocity: String, orbitBody: String) {
         self.name = name
         self.estimatedDiameter = estimatedDiameter
         self.isPotentiallyHazardous = hazardous
         self.closeApproachData = data
         self.distanceKilometers = distanceKilometers
         self.distanceLunar = distanceLunar
+        self.relativeVelocity = relativeVelocity
+        self.orbitingBody = orbitBody
     }
 }

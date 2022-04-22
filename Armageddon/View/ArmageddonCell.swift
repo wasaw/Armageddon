@@ -83,7 +83,7 @@ class ArmageddonCell: UICollectionViewCell {
         return button
     }()
     
-    var asteroid: AsteridInformation? {
+    var asteroid: AsteroidInformation? {
         didSet {
             setInformation()
         }

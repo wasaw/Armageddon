@@ -33,9 +33,15 @@ struct CloseApproachData: Decodable {
     let close_approach_date: String
     let close_approach_date_full: String
     let miss_distance: MissDistance
+    let relative_velocity: RelativeVelocity
+    let orbiting_body: String
 }
 
 struct MissDistance: Decodable {
     let kilometers: String
     let lunar: String
+}
+
+struct RelativeVelocity: Decodable {
+    let kilometers_per_second: String
 }

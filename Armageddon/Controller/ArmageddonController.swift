@@ -13,9 +13,9 @@ class ArmageddonController: UIViewController {
     
     private var collectionView: UICollectionView?
     private let reuseIdentifire = "ArmageddonCell"
-    private var arrayAsteroidInformation = [AsteridInformation]()
+    private var arrayAsteroidInformation = [AsteroidInformation]()
     private var filter = FilterInfornation()
-    private var filteredArray = [AsteridInformation]()
+    private var filteredArray = [AsteroidInformation]()
     private var isNothingVisible = false
     
 //    MARK: - Lifecycle
@@ -55,11 +55,18 @@ class ArmageddonController: UIViewController {
                 distanceLunar = distanceLunar.separated()
                 distanceLunar = String(distanceLunar.reversed())
                 
-                let asteroid = AsteridInformation(name: name, estimatedDiameter: object.estimated_diameter.kilometers.diameter,
+                var relativeVelocity = object.close_approach_data[0].relative_velocity.kilometers_per_second.components(separatedBy: ".")[0]
+                relativeVelocity = String(distanceLunar.reversed())
+                relativeVelocity = distanceLunar.separated()
+                relativeVelocity = String(distanceLunar.reversed())
+                
+                let asteroid = AsteroidInformation(name: name, estimatedDiameter: object.estimated_diameter.kilometers.diameter,
                                                   hazardous: object.is_potentially_hazardous_asteroid,
                                                   data: date,
                                                   distanceKilometers: distanceKilometers,
-                                                  distanceLunar: distanceLunar)
+                                                  distanceLunar: distanceLunar,
+                                                  relativeVelocity: relativeVelocity,
+                                                  orbitBody: object.close_approach_data[0].orbiting_body)
                 self.arrayAsteroidInformation.append(asteroid)
             }
             self.collectionView?.reloadData()
@@ -118,6 +125,16 @@ class ArmageddonController: UIViewController {
 }
 
 // MARK: - Extensions
+
+extension ArmageddonController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        var vc = SelectedAsteroidController(asteroid: arrayAsteroidInformation[indexPath.row])
+        if !filteredArray.isEmpty {
+            vc = SelectedAsteroidController(asteroid: filteredArray[indexPath.row])
+        }
+        navigationController?.pushViewController(vc, animated: true)
+    }
+}
 
 extension ArmageddonController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
