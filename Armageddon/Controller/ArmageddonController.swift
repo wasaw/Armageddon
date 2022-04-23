@@ -121,7 +121,7 @@ class ArmageddonController: UIViewController {
     }
     
     private func updateAsteroidInformation() {
-        guard let modifiedDate = Calendar.current.date(byAdding: .day, value: -1, to: lastRequestDate) else { return }
+        guard let modifiedDate = Calendar.current.date(byAdding: .day, value: +1, to: lastRequestDate) else { return }
         lastRequestDate = modifiedDate
         formatter.dateFormat = "yyyy-MM-dd"
         let requestDate = formatter.string(from: lastRequestDate)
