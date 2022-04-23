@@ -14,6 +14,8 @@ class DestructionViewController: UIViewController {
     private var collectionView: UICollectionView?
     private let reuseIdentifire = "ArmageddonCell"
     private var bruceAsteroid: [BruceAsteroid]?
+    private let reuseIdentifireFooter = "Footer"
+    private var isBruceOrder = false
     
 //    MARK: - Lifecycle
     
@@ -26,7 +28,7 @@ class DestructionViewController: UIViewController {
         super.viewDidLoad()
         
         configureCollectionView()
-        
+
         navigationItem.title = "Ожидание бригады"
         
         loadBruceAsteroid()
@@ -64,10 +66,11 @@ class DestructionViewController: UIViewController {
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         guard let collectionView = collectionView else { return }
         collectionView.register(BruceCell.self, forCellWithReuseIdentifier: reuseIdentifire)
+        collectionView.register(OrderBruceView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: reuseIdentifireFooter)
         collectionView.delegate = self
         collectionView.dataSource = self
         view.addSubview(collectionView)
-        
+
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
@@ -91,6 +94,9 @@ extension DestructionViewController: UICollectionViewDataSource {
         cell.asteroid = bruceAsteroid[indexPath.row]
         cell.delegate = self
         cell.index = indexPath.row
+        if isBruceOrder {
+            cell.arrivalBruceLabel.isHidden = false
+        }
         return cell
     }
     
@@ -98,11 +104,17 @@ extension DestructionViewController: UICollectionViewDataSource {
         guard let bruceAsteroid = bruceAsteroid else { return 0 }
         return bruceAsteroid.count
     }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: reuseIdentifireFooter, for: indexPath) as! OrderBruceView
+        footer.delegate = self
+        return footer
+    }
 }
 
 extension DestructionViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 340, height: 170)
+        return CGSize(width: 340, height: 150)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -111,6 +123,10 @@ extension DestructionViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 19.5, left: 16, bottom: 43.5, right: 19)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+        return CGSize(width: view.frame.width, height: 70)
     }
 }
 
@@ -124,5 +140,11 @@ extension DestructionViewController: DeleteAsteroidDelegate {
     }
 }
 
+extension DestructionViewController: OrderBruceDelegate {
+    func orderBruceOnAsteroid() {
+        isBruceOrder = true
+        collectionView?.reloadData()
+    }
+}
 
 

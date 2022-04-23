@@ -22,6 +22,7 @@
 		BB8AA9282813EF9600CCE42F /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BB8AA9262813EF9600CCE42F /* Model.xcdatamodeld */; };
 		BB8AA92A2814090400CCE42F /* BruceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8AA9292814090400CCE42F /* BruceCell.swift */; };
 		BB8AA92C28140AB900CCE42F /* BruceAsteroid.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8AA92B28140AB900CCE42F /* BruceAsteroid.swift */; };
+		BB8AA930281441A800CCE42F /* OrderBruceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8AA92F281441A800CCE42F /* OrderBruceView.swift */; };
 		BBA22071280C95E00015786F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA22070280C95E00015786F /* AppDelegate.swift */; };
 		BBA22073280C95E00015786F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA22072280C95E00015786F /* SceneDelegate.swift */; };
 		BBA22075280C95E00015786F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA22074280C95E00015786F /* ViewController.swift */; };
@@ -53,6 +54,7 @@
 		BB8AA9272813EF9600CCE42F /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		BB8AA9292814090400CCE42F /* BruceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BruceCell.swift; sourceTree = "<group>"; };
 		BB8AA92B28140AB900CCE42F /* BruceAsteroid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BruceAsteroid.swift; sourceTree = "<group>"; };
+		BB8AA92F281441A800CCE42F /* OrderBruceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderBruceView.swift; sourceTree = "<group>"; };
 		BBA2206D280C95E00015786F /* Armageddon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Armageddon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBA22070280C95E00015786F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BBA22072280C95E00015786F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				BB770DEB28115352002F20C4 /* FilterForm.swift */,
 				BB8AA9222813367A00CCE42F /* SelectedAsteroidCell.swift */,
 				BB8AA9292814090400CCE42F /* BruceCell.swift */,
+				BB8AA92F281441A800CCE42F /* OrderBruceView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 				BBA2208A280D45690015786F /* ArmageddonController.swift in Sources */,
 				BBA2208E280D574D0015786F /* MainTabController.swift in Sources */,
 				BB770DEA2811498E002F20C4 /* FilterController.swift in Sources */,
+				BB8AA930281441A800CCE42F /* OrderBruceView.swift in Sources */,
 				BB8AA9282813EF9600CCE42F /* Model.xcdatamodeld in Sources */,
 				BB8AA92128132F4000CCE42F /* SelectedAsteroidController.swift in Sources */,
 				BB8AA9232813367A00CCE42F /* SelectedAsteroidCell.swift in Sources */,

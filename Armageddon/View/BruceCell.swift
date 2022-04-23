@@ -29,7 +29,7 @@ class BruceCell: UICollectionViewCell {
         return label
     }()
     
-    private let arrivalBruceLabel: UILabel = {
+    let arrivalBruceLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "Helvetica", size: 16)
         label.heightAnchor.constraint(equalToConstant: 30).isActive = true
@@ -117,6 +117,7 @@ class BruceCell: UICollectionViewCell {
         } else {
             arrivalBruceLabel.text = "Бригада ожидает отправки"
         }
+        arrivalBruceLabel.isHidden = true
     }
     
     private func shadow() {
