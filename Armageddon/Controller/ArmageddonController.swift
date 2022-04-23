@@ -142,8 +142,10 @@ extension ArmageddonController: UICollectionViewDataSource {
         if !arrayAsteroidInformation.isEmpty {
             if !filteredArray.isEmpty {
                 cell.asteroid = filteredArray[indexPath.row]
+                cell.delegate = self
             } else {
                 cell.asteroid = arrayAsteroidInformation[indexPath.row]
+                cell.delegate = self
             }
         }
         return cell
@@ -184,5 +186,13 @@ extension ArmageddonController: ApplyFilterDelegate {
         isNothingVisible = false
         filteredArray = []
         filterAsteroid()
+    }
+}
+
+extension ArmageddonController: SaveAsteroidDelegate {
+    func saveAsteroid(asteroid: AsteroidInformation) {
+        DispatchQueue.main.async {
+            DatabaseService.shared.saveAsteroid(asteroid: asteroid)
+        }
     }
 }

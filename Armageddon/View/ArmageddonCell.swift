@@ -7,9 +7,15 @@
 
 import UIKit
 
+protocol SaveAsteroidDelegate: AnyObject {
+    func saveAsteroid(asteroid: AsteroidInformation)
+}
+
 class ArmageddonCell: UICollectionViewCell {
     
 //    MARK: - Properties
+    
+    weak var delegate: SaveAsteroidDelegate?
     
     private let asteroidView: UIView = {
         let view = UIView()
@@ -80,6 +86,7 @@ class ArmageddonCell: UICollectionViewCell {
         button.backgroundColor = .buttonBackground
         button.layer.cornerRadius = 14
         button.configuration?.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 12, bottom: 0, trailing: 12)
+        button.addTarget(self, action: #selector(handleDestroyButton), for: .touchUpInside)
         return button
     }()
     
@@ -221,5 +228,12 @@ class ArmageddonCell: UICollectionViewCell {
         case .big:
             asteroidImageView.image = UIImage(named: "HugeAsteroid")
         }
+    }
+    
+//    MARK: - Selectors
+    
+    @objc private func handleDestroyButton() {
+        guard let asteroid = asteroid else { return }
+        delegate?.saveAsteroid(asteroid: asteroid)
     }
 }

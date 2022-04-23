@@ -18,6 +18,10 @@
 		BB8AA91D2811972800CCE42F /* FilterInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8AA91C2811972800CCE42F /* FilterInformation.swift */; };
 		BB8AA92128132F4000CCE42F /* SelectedAsteroidController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8AA92028132F4000CCE42F /* SelectedAsteroidController.swift */; };
 		BB8AA9232813367A00CCE42F /* SelectedAsteroidCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8AA9222813367A00CCE42F /* SelectedAsteroidCell.swift */; };
+		BB8AA9252813EEE700CCE42F /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8AA9242813EEE700CCE42F /* DatabaseService.swift */; };
+		BB8AA9282813EF9600CCE42F /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BB8AA9262813EF9600CCE42F /* Model.xcdatamodeld */; };
+		BB8AA92A2814090400CCE42F /* BruceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8AA9292814090400CCE42F /* BruceCell.swift */; };
+		BB8AA92C28140AB900CCE42F /* BruceAsteroid.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8AA92B28140AB900CCE42F /* BruceAsteroid.swift */; };
 		BBA22071280C95E00015786F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA22070280C95E00015786F /* AppDelegate.swift */; };
 		BBA22073280C95E00015786F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA22072280C95E00015786F /* SceneDelegate.swift */; };
 		BBA22075280C95E00015786F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA22074280C95E00015786F /* ViewController.swift */; };
@@ -45,6 +49,10 @@
 		BB8AA91C2811972800CCE42F /* FilterInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterInformation.swift; sourceTree = "<group>"; };
 		BB8AA92028132F4000CCE42F /* SelectedAsteroidController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedAsteroidController.swift; sourceTree = "<group>"; };
 		BB8AA9222813367A00CCE42F /* SelectedAsteroidCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedAsteroidCell.swift; sourceTree = "<group>"; };
+		BB8AA9242813EEE700CCE42F /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
+		BB8AA9272813EF9600CCE42F /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		BB8AA9292814090400CCE42F /* BruceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BruceCell.swift; sourceTree = "<group>"; };
+		BB8AA92B28140AB900CCE42F /* BruceAsteroid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BruceAsteroid.swift; sourceTree = "<group>"; };
 		BBA2206D280C95E00015786F /* Armageddon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Armageddon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBA22070280C95E00015786F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BBA22072280C95E00015786F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -84,6 +92,7 @@
 		BBA22064280C95E00015786F = {
 			isa = PBXGroup;
 			children = (
+				BB8AA9262813EF9600CCE42F /* Model.xcdatamodeld */,
 				BBA2206F280C95E00015786F /* Armageddon */,
 				BBA2206E280C95E00015786F /* Products */,
 				D7090C2E0A91FF0D7B9A5715 /* Pods */,
@@ -125,6 +134,7 @@
 				BB770DE5280EF92C002F20C4 /* JsonResponse.swift */,
 				BB770DE728100369002F20C4 /* AsteroidInformation.swift */,
 				BB8AA91C2811972800CCE42F /* FilterInformation.swift */,
+				BB8AA92B28140AB900CCE42F /* BruceAsteroid.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -135,6 +145,7 @@
 				BBA2208B280D477F0015786F /* ArmageddonCell.swift */,
 				BB770DEB28115352002F20C4 /* FilterForm.swift */,
 				BB8AA9222813367A00CCE42F /* SelectedAsteroidCell.swift */,
+				BB8AA9292814090400CCE42F /* BruceCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -155,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				BB770DE1280EF66E002F20C4 /* NetworkService.swift */,
+				BB8AA9242813EEE700CCE42F /* DatabaseService.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -301,13 +313,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB8AA92A2814090400CCE42F /* BruceCell.swift in Sources */,
+				BB8AA9252813EEE700CCE42F /* DatabaseService.swift in Sources */,
 				BBA22075280C95E00015786F /* ViewController.swift in Sources */,
 				BBA2208A280D45690015786F /* ArmageddonController.swift in Sources */,
 				BBA2208E280D574D0015786F /* MainTabController.swift in Sources */,
 				BB770DEA2811498E002F20C4 /* FilterController.swift in Sources */,
+				BB8AA9282813EF9600CCE42F /* Model.xcdatamodeld in Sources */,
 				BB8AA92128132F4000CCE42F /* SelectedAsteroidController.swift in Sources */,
 				BB8AA9232813367A00CCE42F /* SelectedAsteroidCell.swift in Sources */,
 				BBA22093280D89420015786F /* Extensions.swift in Sources */,
+				BB8AA92C28140AB900CCE42F /* BruceAsteroid.swift in Sources */,
 				BB770DE828100369002F20C4 /* AsteroidInformation.swift in Sources */,
 				BB8AA91D2811972800CCE42F /* FilterInformation.swift in Sources */,
 				BB770DE2280EF66E002F20C4 /* NetworkService.swift in Sources */,
@@ -536,6 +552,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		BB8AA9262813EF9600CCE42F /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				BB8AA9272813EF9600CCE42F /* Model.xcdatamodel */,
+			);
+			currentVersion = BB8AA9272813EF9600CCE42F /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = BBA22065280C95E00015786F /* Project object */;
 }
