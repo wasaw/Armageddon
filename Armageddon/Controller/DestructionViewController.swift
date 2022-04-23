@@ -17,6 +17,11 @@ class DestructionViewController: UIViewController {
     
 //    MARK: - Lifecycle
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadBruceAsteroid()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,6 +29,14 @@ class DestructionViewController: UIViewController {
         
         navigationItem.title = "Ожидание бригады"
         
+        loadBruceAsteroid()
+        
+        view.backgroundColor = .white
+    }
+    
+//    MARK: - Helpers
+    
+    private func loadBruceAsteroid() {
         DispatchQueue.main.async {
             self.bruceAsteroid = DatabaseService.shared.getAsteroidInformation()
             let currentDate = Date()
@@ -44,11 +57,7 @@ class DestructionViewController: UIViewController {
             
             self.collectionView?.reloadData()
         }
-        
-        view.backgroundColor = .white
     }
-    
-//    MARK: - Helpers
     
     private func configureCollectionView() {
         let layout = UICollectionViewFlowLayout()

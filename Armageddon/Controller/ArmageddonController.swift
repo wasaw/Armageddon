@@ -17,6 +17,8 @@ class ArmageddonController: UIViewController {
     private var filter = FilterInfornation()
     private var filteredArray = [AsteroidInformation]()
     private var isNothingVisible = false
+    private let formatter = DateFormatter()
+    private var lastRequestDate = Date()
     
 //    MARK: - Lifecycle
     
@@ -29,21 +31,27 @@ class ArmageddonController: UIViewController {
         configureCollectionView()
         
         let currentDate = Date()
-        let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         let requestCurrentDate = formatter.string(from: currentDate)
-//        let modifiedDate = Calendar.current.date(byAdding: .day, value: 1, to: currentDate)
+        
+        loadAsteroidArray(requestDate: requestCurrentDate)
 
-        NetworkService.shared.loadInformation(requestDate: requestCurrentDate) { response in
-            guard let selectedDateObject = response.near_earth_objects[requestCurrentDate] else { return }
+        view.backgroundColor = .navigationBackground
+    }
+    
+//     MARK: - Helpers
+    
+    private func loadAsteroidArray(requestDate: String) {
+        NetworkService.shared.loadInformation(requestDate: requestDate) { response in
+            guard let selectedDateObject = response.near_earth_objects[requestDate] else { return }
             for object in selectedDateObject {
                 let name = object.name.substring(from: "\\(", to: "\\)")
                 
-                formatter.dateFormat = "yyyy-MM-dd"
-                let dateFromString = formatter.date(from: object.close_approach_data[0].close_approach_date)
-                formatter.dateFormat = "dd LLLL yyyy"
+                self.formatter.dateFormat = "yyyy-MM-dd"
+                let dateFromString = self.formatter.date(from: object.close_approach_data[0].close_approach_date)
+                self.formatter.dateFormat = "dd LLLL yyyy"
                 guard let dateFromString = dateFromString else { continue }
-                let date = formatter.string(from: dateFromString)
+                let date = self.formatter.string(from: dateFromString)
                 
                 var distanceKilometers = object.close_approach_data[0].miss_distance.kilometers.components(separatedBy: ".")[0]
                 distanceKilometers = String(distanceKilometers.reversed())
@@ -71,10 +79,7 @@ class ArmageddonController: UIViewController {
             }
             self.collectionView?.reloadData()
         }
-        view.backgroundColor = .navigationBackground
     }
-    
-//     MARK: - Helpers
     
     private func configureNavigationController() {
         navigationController?.navigationBar.backgroundColor = .navigationBackground
@@ -115,6 +120,16 @@ class ArmageddonController: UIViewController {
         self.collectionView?.reloadData()
     }
     
+    private func updateAsteroidInformation() {
+        guard let modifiedDate = Calendar.current.date(byAdding: .day, value: -1, to: lastRequestDate) else { return }
+        lastRequestDate = modifiedDate
+        formatter.dateFormat = "yyyy-MM-dd"
+        let requestDate = formatter.string(from: lastRequestDate)
+        loadAsteroidArray(requestDate: requestDate)
+        
+        self.collectionView?.reloadData()
+    }
+    
 //    MARK: - Selectors
     
     @objc private func handleRightButton() {
@@ -133,6 +148,12 @@ extension ArmageddonController: UICollectionViewDelegate {
             vc = SelectedAsteroidController(asteroid: filteredArray[indexPath.row])
         }
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if indexPath.row == collectionView.numberOfItems(inSection: indexPath.section) - 1 {
+            updateAsteroidInformation()
+        }
     }
 }
 
